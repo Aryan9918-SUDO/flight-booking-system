@@ -1,20 +1,17 @@
-
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import FlightSearch from './components/FlightSearch';
+import Navbar from './components/Navbar';
+import BookingHistory from './pages/BookingHistory'; // New import
 
 function App() {
   return (
     <Router>
-      <div className="min-h-screen bg-gray-50">
-        <nav className="bg-blue-600 text-white p-4 shadow-md">
-          <div className="container mx-auto flex justify-between items-center">
-            <h1 className="text-2xl font-bold">Flight Booking System</h1>
-            <div className="font-medium">Wallet: ₹50,000</div>
-          </div>
-        </nav>
-        <main className="py-8">
+      <div className="min-h-screen flex flex-col bg-gray-50">
+        <Navbar />
+        <main className="flex-grow py-6">
           <Routes>
             <Route path="/" element={<FlightSearch />} />
+            <Route path="/history" element={<BookingHistory />} />
           </Routes>
         </main>
       </div>
